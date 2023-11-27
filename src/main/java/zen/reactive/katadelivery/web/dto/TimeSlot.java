@@ -1,3 +1,3 @@
 package zen.reactive.katadelivery.web.dto;
 
-public record TimeSlot(String day, String time) {}
+public record TimeSlot(Long id, String day, String time) {}

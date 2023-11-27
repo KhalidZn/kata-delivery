@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import zen.reactive.katadelivery.core.DeliveryMode;
+import zen.reactive.katadelivery.web.controller.DeliveryController;
 import zen.reactive.katadelivery.web.dto.TimeSlot;
 
 @WebFluxTest(controllers = DeliveryController.class)
@@ -31,7 +32,7 @@ class DeliveryControllerTest {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBodyList(TimeSlot.class)
-                .contains(new TimeSlot("Lundi", "09:00-11:00"))
+                .contains(new TimeSlot(1L, "Lundi", "09:00-11:00"))
                 .hasSize(2);
     }
 }

@@ -1,4 +1,4 @@
-package zen.reactive.katadelivery.web;
+package zen.reactive.katadelivery.web.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,12 +22,12 @@ public class DeliveryController {
 
         return switch (deliveryMode){
             case DELIVERY_TODAY, DELIVERY_ASAP ->  Flux.just(
-                    new TimeSlot("Lundi", "09:00-11:00"),
-                    new TimeSlot("Lundi", "13:00-15:00")
+                    new TimeSlot(1L, "Lundi", "09:00-11:00"),
+                    new TimeSlot(2L, "Lundi", "13:00-15:00")
             );
             case DRIVE , DELIVERY -> Flux.just(
-                    new TimeSlot("Mardi", "10:00-12:00"),
-                    new TimeSlot("Mercredi", "14:00-16:00")
+                    new TimeSlot(3L, "Mardi", "10:00-12:00"),
+                    new TimeSlot(4L, "Mercredi", "14:00-16:00")
             );
             default -> Flux.empty();
         };
